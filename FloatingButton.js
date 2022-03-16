@@ -1,6 +1,5 @@
-import { Animated, Easing } from "react-native";
 import styled from "styled-components/native";
-import React, { useRef, useEffect } from "react";
+import React from "react";
 
 const Button = ({ direction }) => (
   <Container isTail={direction === "down"}>
@@ -9,8 +8,6 @@ const Button = ({ direction }) => (
 );
 
 const FloatingButton = ({ direction }) => {
-  const scrollAnimatedValue = useRef(new Animated.Value(180)).current;
-
   return <Button direction={direction} />;
 };
 

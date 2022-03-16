@@ -29,10 +29,9 @@ const ForumItem = (props) => {
 
 export default ForumItem;
 
-const Container = styled.View`
+const Container = styled.TouchableOpacity`
   flex-direction: row;
   align-items: center;
-  margin: 10px 20px;
 `;
 
 const Avatar = styled.Image`

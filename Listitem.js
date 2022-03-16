@@ -20,9 +20,11 @@ const ListItem = ({ item }) => {
         </WrapperWithUserInfo>
         {image.length > 0 && (
           <Images source={{ uri: image[0] }}>
-            <ImageInfo>
-              <ImageInfoTX>{`+${image.length - 1}`}</ImageInfoTX>
-            </ImageInfo>
+            {image.length > 1 && (
+              <ImageInfo>
+                <ImageInfoTX>{`+${image.length - 1}`}</ImageInfoTX>
+              </ImageInfo>
+            )}
           </Images>
         )}
       </Body>
@@ -31,7 +33,20 @@ const ListItem = ({ item }) => {
           <ForumTX>{`${nick_name} · `}</ForumTX>
           <TimeTX>{display_date}</TimeTX>
         </RowContainer>
-        <RowContainer>{/* Status Icons */}</RowContainer>
+        <RowContainer>
+          <StatusUnit>
+            <Icon source={require("./src/assets/views.png")} />
+            <IconTX>0</IconTX>
+          </StatusUnit>
+          <StatusUnit>
+            <Icon source={require("./src/assets/like.png")} />
+            <IconTX>0</IconTX>
+          </StatusUnit>
+          <StatusUnit>
+            <Icon source={require("./src/assets/comment.png")} />
+            <IconTX>0</IconTX>
+          </StatusUnit>
+        </RowContainer>
       </StatusContainer>
     </ListContainer>
   );
@@ -103,4 +118,19 @@ const TimeTX = styled.Text`
 const WrapperWithUserInfo = styled.View`
   justify-content: space-between;
   flex: 1;
+`;
+
+const Icon = styled.Image`
+  width: 11px;
+  height: 11px;
+  resize-mode: contain;
+`;
+const IconTX = styled.Text`
+  font-size: 11px;
+  color: #7c7c7c;
+  margin-left: 5px;
+`;
+const StatusUnit = styled(RowContainer)`
+  margin-left: 10px;
+  align-items: center;
 `;
